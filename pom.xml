@@ -52,7 +52,12 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                     <mainClass>com.example.App</mainClass>
+                   <archive>
+                      <manifest>
+                         <addClasspath>true</addClasspath>
+                         <mainClass>com.example.App</mainClass>
+                     </manifest>
+                   </archive>       
                 </configuration>
             </plugin>
 

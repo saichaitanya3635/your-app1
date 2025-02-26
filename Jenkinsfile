@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'start /B java -jar target/*.jar'  // Runs in the background
+                bat 'start /B java -jar target/simple-microservice-1.0-SNAPSHOT.jar'  // Runs in the background
             }
         }
     }

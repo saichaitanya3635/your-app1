@@ -22,7 +22,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'nohup java -jar target/*.jar &'
+                 bat 'start java -jar target/*.jar'
             }
         }
     }

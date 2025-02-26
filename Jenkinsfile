@@ -14,31 +14,25 @@ pipeline {
             }
         }
 
-        stage('Build with Maven') {
+        stage('Build with Maven (Skip Tests)') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
-        // stage('Run Unit Tests') {
-        //     steps {
-        //         sh 'mvn test'
-        //     }
-        // }
-
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'nohup java -jar target/*.jar &'
-        //     }
-        // }
+        stage('Deploy') {
+            steps {
+                sh 'nohup java -jar target/*.jar &'
+            }
+        }
     }
 
-    // post {
-    //     success {
-    //         echo 'Build and deployment successful!'
-    //     }
-    //     failure {
-    //         echo 'Build failed. Check logs.'
-    //     }
-    // }
+    post {
+        success {
+            echo 'Build and deployment successful!'
+        }
+        failure {
+            echo 'Build failed. Check logs.'
+        }
+    }
 }

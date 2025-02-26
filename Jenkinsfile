@@ -16,13 +16,13 @@ pipeline {
 
         stage('Build with Maven (Skip Tests)') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'nohup java -jar target/*.jar &'
+                bat 'nohup java -jar target/*.jar &'
             }
         }
     }

@@ -16,6 +16,9 @@ pipeline {
 
         stage('Build with Maven (Skip Tests)') {
             steps {
+                echo %MAVEN_HOME%
+                echo %PATH%
+
                 bat 'mvn clean package -DskipTests'
             }
         }

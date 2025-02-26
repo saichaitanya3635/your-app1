@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'test-agent' }
+    agent { label 'test-agent' }  // Ensure the agent is correctly configured
 
     stages {
         stage('Clean Workspace') {
@@ -16,16 +16,15 @@ pipeline {
 
         stage('Build with Maven (Skip Tests)') {
             steps {
-                echo %MAVEN_HOME%
-                echo %PATH%
-
+                bat 'echo MAVEN_HOME=%MAVEN_HOME%'
+                bat 'echo PATH=%PATH%'
                 bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Deploy') {
             steps {
-                 bat 'start java -jar target/*.jar'
+                bat 'start /B java -jar target/*.jar'  // Runs in the background
             }
         }
     }

@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'test-agent' }  // Ensure the agent is correctly configured
     tools {
-        Maven 'Maven-3.9.9'  // Matches the name in Global Tool Configuration
+        maven 'Maven-3.9.9'  // Matches the name in Global Tool Configuration
     }
 
     stages {

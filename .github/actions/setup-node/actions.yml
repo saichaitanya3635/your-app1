@@ -1,0 +1,25 @@
+name: "Setup Node.js Environment (Windows Compatible)"
+description: "Sets up Node.js, installs dependencies, and runs tests on Windows"
+inputs:
+  node-version:
+    description: "Node.js version"
+    required: true
+  install-command:
+    description: "Command to install dependencies"
+    default: "npm ci"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install Dependencies
+      run: ${{ inputs.install-command }}
+      shell: pwsh
+
+    - name: Run Tests
+      run: npm test
+      shell: pwsh

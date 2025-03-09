@@ -18,8 +18,8 @@ runs:
 
     - name: Install Dependencies
       run: ${{ inputs.install-command }}
-      shell: pwsh
+      shell: powershell
 
     - name: Run Tests
       run: npm test
-      shell: pwsh
+      shell: powershell

@@ -17,7 +17,7 @@ runs:
         node-version: ${{ inputs.node-version }}
 
     - name: Install Dependencies
-       run: |
+      run: |
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
         ${{ inputs.install-command   }}
       shell: powershell

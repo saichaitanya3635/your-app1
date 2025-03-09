@@ -25,7 +25,7 @@ jobs:
     #         echo "❌ action.yml NOT found"
     #         exit 1
     #       }
-    #     shell: pwsh
+    #     shell: pws
 
     - name: Run Custom Node.js Setup Action
       if: success()

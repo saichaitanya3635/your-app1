@@ -17,11 +17,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Run Custom Node.js Setup Action
-      if: success()
-      uses: ./.github/actions/setup-node
-      with:
-         node-version: "18"
-         install-command: "npm install"
+    - name: Verify Action File Exists
+      run: |
+        if (Test-Path ".github/actions/setup-node/action.yml") {
+            echo "✅ action.yml found"
+          } else {
+            echo "❌ action.yml NOT found"
+            exit 1
+          }
+        shell: pwsh
+
+    # - name: Run Custom Node.js Setup Action
+    #   if: success()
+    #   uses: ./.github/actions/setup-node
+    #   with:
+    #      node-version: "18"
+    #      install-command: "npm install"
 
    

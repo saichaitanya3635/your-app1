@@ -1,0 +1,6 @@
+name: your -app1
+
+on:
+ push:
+   branch: main
+
